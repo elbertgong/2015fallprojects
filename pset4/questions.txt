@@ -1,0 +1,20 @@
+0.  BMP supports over 4 billion colors, PNG and JPEG both support around 16 million, GIF supports 256.
+1.  GIF supports animation.
+2.  Lossy compression discards parts of the data to have a smaller compressed file. Lossless compression does not degrade the image and
+preserves the image quality.
+3.  JPEG is lossy.
+4.  The first character in the FAT file's directory entry is modified. The FAT clusters are moved to the hard drive's list of free clusters.
+5.  You can use a sanitization tool to overwrite over your existing data.
+6.  Stdint declares types of integers of a certain length (number of bytes).
+7.  They specify the number of bytes (8, 32, or 16) you want to free up for a certain type of data, and whether the integer is signed or unsigned.
+8.  Byte is 1, dword and long are 4, word is 2.
+9.  The first 2 bytes are a "WORD" represented by 424d in hexadecimal. 424d -> "BM"
+10. BiSize is size in bytes of the entire structure, while bfSize is the size in bytes of the bitmap file.
+11. If biHeight is negative, the bitmap is a top-down bitmap and begins in the upper right corner.
+12. biBitCount specifies the number of bits per pixel.
+13. If the output file for the program to write to cannot be opened.
+14. This third argument is the number of elements you want to read from the file. Since you want to read one element at a time, this argument is 1.
+15. It assigns a value of 3 to padding.
+16. Fseek skips over the padding, if any.
+17. It specifies the offset in "fseek" as relative to the current position.
+18. Rick Astley?

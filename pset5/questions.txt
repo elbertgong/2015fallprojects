@@ -1,0 +1,29 @@
+0.  Pneumonoultramicrosilicovolcanoconiosis is a pneumoconiosis caused by inhalation of very fine silicate or quartz dust.
+1.  Getrusage returns the resource usage measures for a process. One of the things it measures is user cpu time used, which is what we are interested in.
+2.  There are 16 variables in a struct rusage.
+3.  Since "before" and "after" are structs, passing in their addresses allows you to use the -> syntax to directly access elements of the structs, 
+and saves you the memory space of having to create a new copy of each struct to pass into "calculate".
+4.  It gets characters one by one from the text file until EOF is reached. If the character is alphabetical or an apostrophe, it stores that character in 
+an array called "word". It knows which position in "word" to store the character in because of a counting variable called "index". If an alphabetical
+string is too long to be a word, the while loop "gets" the rest of the characters until the next non-alphabetic character, upon which the program sets 
+"index" to zero in order to prepare "word" to accept a new word inside of it. It does the same thing if the string contains a number, consuming the rest
+of the characters in the string and setting "index" to zero. If the next character gotten is not a letter or number, it must mark the end of a word. 
+So then, "\0" is printed in "word" to demarcate the end of a string. The counting variable "words" is increased by one. The program then checks if the 
+word is in the dictionary. If it isn't, the word is printed and the counting variable "misspelled" is increased by one. Then "index" is set to zero to
+prepare "word" to accept a new word inside of it.
+5.  Fscanf can read a certain number of elements, but you don't know in advance whether there are numbers or punctuation marks in your word.
+You'd like to read in one word at a time, but there's no way to check whether the word is a valid word during the middle of your scanning.
+6.  It can save you the time of checking again and again what the value of the parameters passed into the function are if you know that those parameters
+are constant.
+7.  I used a hash table with 7919 buckets. I assigned each word into a bucket based on a certain formula. Inside each one of the buckets was a 
+linked list of nodes, and each node contained a word and a pointer to the next node (or NULL). My hash function was found from the website 
+http://erlycoder.com/49/javascript-hash-functions-to-convert-string-into-integer-hash-
+I used the sdbm function from this website, as it seemed to work well for me.
+8.  It took about .10 seconds to check the Austin Powers text.
+9.  I experimented with various different hash functions. I tried a bunch of strange formulas involving prime numbers (like 
+676*first letter + 26*second letter + third letter all multiplied by 31 and other such nonsense). I eventually decided to do some research on the
+internet about hash functions. This helped me speed up the average performance of the program. Experimenting with larger and smaller hashtable sizes
+(my original size was around 100, I tried values from 100 to 10000 and settled with 7919) also helped me speed up the performance. I also tried to get
+rid of micro-inefficiencies, like changing multiple "if"s to "else if". 
+10. There were definitely bottlenecks. I suspect things would have been faster if I had used a trie structure. And there are probably way better
+hash function ideas that I could not think of, as clearly the cs50's function was faster than mine.
